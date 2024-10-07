@@ -2,11 +2,11 @@
 
 typedef struct
 {
-    int* array;
+    int* items;
     int length;
 } Array;
 
-int busca_binaria(Array array, int valor) {
+int binary_search(Array array, int value) {
     int start = 0;
     int end = array.length;
     int limit = 0;
@@ -15,10 +15,10 @@ int busca_binaria(Array array, int valor) {
     {
         int middle = (start + end) / 2;
 
-        if(array.array[middle] == valor) {
+        if(array.items[middle] == value) {
             return middle;
         }
-        else if(array.array[middle] < valor) {
+        else if(array.items[middle] < value) {
             start = middle + 1;
         }
         else {
@@ -34,7 +34,7 @@ int main() {
     Array array = {
         param, 
         (sizeof(array) / sizeof(param[0])) - 1};
-    int result = busca_binaria(array, 2);
+    int result = binary_search(array, 2);
     
     printf("resultado da busca eh: %d\n", result);
     return 0;
